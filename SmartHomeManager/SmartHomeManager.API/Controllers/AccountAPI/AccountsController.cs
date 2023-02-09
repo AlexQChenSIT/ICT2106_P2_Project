@@ -121,7 +121,7 @@ namespace SmartHomeManager.API.Controllers.AccountController
                 {
                     return Ok(response);
                 }
-
+                    
                 return BadRequest("Account created but email not sent");
             }
 

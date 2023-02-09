@@ -67,22 +67,22 @@ export function NavBar() {
           spacing={6}
         >
           <Button
-            as={"a"}
             fontSize={"sm"}
             fontWeight={400}
             variant={"link"}
-            href={"/login"}
+            as={RouterLink}
+            to="/login"
           >
             Sign In
           </Button>
           <Button 
-            as={"a"}
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
             fontWeight={600}
             color={"white"}
             bg={"pink.400"}
-            href={"/register"}
+            as={RouterLink}
+            to="/register"
             _hover={{
               bg: "pink.300",
             }}

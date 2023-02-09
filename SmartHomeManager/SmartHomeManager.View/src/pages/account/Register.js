@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import {
     Flex,
     Box,
@@ -23,9 +24,12 @@ import {
     SliderThumb
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-//import bcrypt from 'bcryptjs'
 
 export default function Register() {
+
+    //Navigation declaration
+    const navigate = useNavigate();
+
     //Input declaration
     const [emailInput, updateEmailInput] = useState("")
     const [usernameInput, updateUsernameInput] = useState("")
@@ -106,20 +110,6 @@ export default function Register() {
     //Submit form
     const submitRegisterForm = () => {
         if (emailValid && passwordValid && confirmPasswordValid && emailInput.length!=0 && passwordInput.length>=8 && confirmPasswordInput.length>=8) {
-            /*
-            const salt = bcrypt.genSaltSync(10)
-            const hashPassword = bcrypt.hash(passwordInput, salt)
-            
-            bcrypt.compare(passwordInput, hashKey, function (err, result) {
-                console.log({ passwordInput }, result)
-            });
-            console.log({ emailInput })
-            console.log({ usernameInput })
-            console.log({ timezoneInput })
-            console.log({ passwordInput })
-            console.log({ confirmPasswordInput })
-            console.log({ addressInput })
-            */
 
             //JSO stringify to send to api controller
             const obj = {
@@ -137,7 +127,7 @@ export default function Register() {
                     const msg = await response.text();
                     if (response.ok) {
                         updateAccountCreateFailStatus(false);
-                        window.location.href = "/account-created";
+                        navigate("/account-created", {replace:true});
                     } else {
                         throw new Error(msg)
                     }

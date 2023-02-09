@@ -1,33 +1,18 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import {
     Flex,
     Box,
     FormControl,
     FormLabel,
-    Input,
-    InputGroup,
-    InputRightElement,
     Stack,
     Button,
     Heading,
     Text,
     useColorModeValue,
-    Link,
-    FormErrorMessage,
-    FormHelperText,
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper,
-    Slider,
-    SliderTrack,
-    SliderFilledTrack,
-    SliderThumb
 } from '@chakra-ui/react';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 export default function MyAccount() {
-
-
+    //Dummy Data WIP
     return (
         <Flex
             minH={'100vh'}

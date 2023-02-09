@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import {
     Flex,
     Box,
@@ -17,6 +18,9 @@ import {
 
 export default function Login() {
 
+    //Navigation declaration
+    const navigate = useNavigate();
+
     //Email input + validation
     const [emailInput, updateEmailInput] = useState("")
     const [emailValid, updateEmailValid] = useState(true)
@@ -33,6 +37,8 @@ export default function Login() {
             updateEmailValid(mailFormat.test(emailInput))
         }
     }
+
+    //Function to submit login form
     const submitLoginForm = () => {
         if(emailValid && passwordInput.length>=8){
         const obj = {
@@ -50,7 +56,7 @@ export default function Login() {
                 const msg = await response.text();
                 if (response.ok) {
                     updateErrorStatus(false);
-                    window.location.href = "/";
+                    navigate("/", {replace:true});
                 } else {
                     updateErrorStatus(true);
                     throw new Error(msg);
